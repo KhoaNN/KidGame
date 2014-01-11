@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B42" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Content" representedClassName="Content" syncable="YES">
+        <attribute name="contentImage" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="contentSound" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contentText" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="title" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Title" inverseName="content" inverseEntity="Title" syncable="YES"/>
+    </entity>
+    <entity name="Title" representedClassName="Title" syncable="YES">
+        <attribute name="titleImage" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="titleText" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="content" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Content" inverseName="title" inverseEntity="Content" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Content" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Title" positionX="0" positionY="0" width="0" height="0"/>
+    </elements>
+</model>
