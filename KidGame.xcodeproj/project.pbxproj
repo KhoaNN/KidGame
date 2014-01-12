@@ -350,6 +350,7 @@
 		18ABA1B6187C93D6000FD829 /* 19-toa-nha.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18ABA1A3187C93D6000FD829 /* 19-toa-nha.jpg */; };
 		18ABA1B7187C93D6000FD829 /* 20-dung-cu-hoc-tap.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18ABA1A4187C93D6000FD829 /* 20-dung-cu-hoc-tap.jpg */; };
 		18ABA1B9187CFEA0000FD829 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 18ABA1B8187CFEA0000FD829 /* data.json */; };
+		18B3F300188323E500EE0BA0 /* CustomReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B3F2FF188323E500EE0BA0 /* CustomReusableView.m */; };
 		18B43302187DF07200A03DCB /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B43301187DF07200A03DCB /* SecondViewController.m */; };
 		18BF4F821879E21D003579C3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BF4F811879E21D003579C3 /* Foundation.framework */; };
 		18BF4F841879E21D003579C3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BF4F831879E21D003579C3 /* CoreGraphics.framework */; };
@@ -1353,6 +1354,8 @@
 		18ABA1A3187C93D6000FD829 /* 19-toa-nha.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "19-toa-nha.jpg"; sourceTree = "<group>"; };
 		18ABA1A4187C93D6000FD829 /* 20-dung-cu-hoc-tap.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "20-dung-cu-hoc-tap.jpg"; sourceTree = "<group>"; };
 		18ABA1B8187CFEA0000FD829 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		18B3F2FE188323E500EE0BA0 /* CustomReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomReusableView.h; sourceTree = "<group>"; };
+		18B3F2FF188323E500EE0BA0 /* CustomReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomReusableView.m; sourceTree = "<group>"; };
 		18B43300187DF07200A03DCB /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		18B43301187DF07200A03DCB /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		18BF4F7E1879E21D003579C3 /* KidGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KidGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2590,6 +2593,8 @@
 				18BF4FC61879EB99003579C3 /* FirstViewController.m */,
 				18B43300187DF07200A03DCB /* SecondViewController.h */,
 				18B43301187DF07200A03DCB /* SecondViewController.m */,
+				18B3F2FE188323E500EE0BA0 /* CustomReusableView.h */,
+				18B3F2FF188323E500EE0BA0 /* CustomReusableView.m */,
 				18BF4FBD1879E2F8003579C3 /* KidGame.storyboard */,
 				18BF4F981879E21D003579C3 /* Images.xcassets */,
 				18BF4F8A1879E21D003579C3 /* Supporting Files */,
@@ -4344,6 +4349,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18B3F300188323E500EE0BA0 /* CustomReusableView.m in Sources */,
 				18BF4FC71879EB99003579C3 /* FirstViewController.m in Sources */,
 				18ABA18E187C74B2000FD829 /* Content.m in Sources */,
 				18BF4F941879E21D003579C3 /* AppDelegate.m in Sources */,

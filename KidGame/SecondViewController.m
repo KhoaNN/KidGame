@@ -7,6 +7,7 @@
 //
 
 #import "SecondViewController.h"
+#import "CustomReusableView.h"
 
 @interface SecondViewController ()
 
@@ -159,6 +160,26 @@ int level;
     NSLog(@"Level: %d",level);
 }
 
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionReusableView *reusableview = nil;
+    
+    if (kind == UICollectionElementKindSectionHeader) {
+        CustomReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
+        NSString *title = [[NSString alloc]initWithFormat:@"Bé hãy tìm %@ ?", [arrayTitle objectAtIndex:correctCard]];
+        headerView.title.text = title;
+        
+        reusableview = headerView;
+    }
+    
+    if (kind == UICollectionElementKindSectionFooter) {
+        UICollectionReusableView *footerview = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"FooterView" forIndexPath:indexPath];
+        
+        reusableview = footerview;
+    }
+    
+    return reusableview;
+}
 
 - (void)didReceiveMemoryWarning
 {
