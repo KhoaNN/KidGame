@@ -12,9 +12,13 @@
 
 @end
 
+int level;
+
 @implementation SecondViewController {
-    int level;
+    
     int cardsOfLevel;
+    int correctCard;
+    int correctCount;
 }
 
 @synthesize idTitle;
@@ -32,15 +36,26 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
+
     level = 1;
+    correctCount = 0;
     
+    [self loadData];
+    
+}
+
+- (void)loadData
+{
     if (level == 1) {
         cardsOfLevel = 2;
     } else if (level == 2) {
         cardsOfLevel = 3;
-    } else if (level == 4) {
+    } else if (level == 3) {
         cardsOfLevel = 5;
+    } else if (level == 4) {
+        cardsOfLevel = 7;
+    } else if (level == 5) {
+        cardsOfLevel = 10;
     }
     
     arrayImage = [[NSMutableArray alloc]init];
@@ -58,6 +73,9 @@
     
     NSArray *cards = (NSArray *)[t objectForKey:@"cards"];
     
+    if (cardsOfLevel > cards.count) {
+        cardsOfLevel = cards.count;
+    }
     
     NSMutableSet * numberSet = [NSMutableSet setWithCapacity:cardsOfLevel];
     while ([numberSet count] < cardsOfLevel ) {
@@ -66,9 +84,9 @@
     }
     
     NSArray * numbers = [numberSet allObjects];
-   
+    
     for (int i = 0; i < numbers.count; i++) {
-
+        
         NSDictionary *cardsDict = (NSDictionary *)[cards objectAtIndex:[[numbers objectAtIndex:i] intValue]-1];
         NSString *src = (NSString *)[cardsDict objectForKey:@"src"];
         NSLog(@"Cards src: %@",src);
@@ -85,6 +103,9 @@
         [arraySound addObject:[NSString stringWithFormat:@"%@",sound]];
         
     }
+    
+    correctCard = arc4random() % numbers.count + 0;
+    NSLog(@"Correct Card: %@",[arrayTitle objectAtIndex:correctCard]);
 
 }
 
@@ -110,14 +131,32 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    level = level +1;
-    NSLog(@"Level: %d",level);
+    if (correctCard == indexPath.item) {
+        NSLog(@"Correct");
+        correctCount += 1;
+        
+        if (correctCount == 3) {
+            if (level < 5) {
+                level += 1;
+            }
+            correctCount = 0;
+        }
+    }
+    else {
+        correctCount = 0;
+    }
+    
+    
     NSURL* audioFile = [NSURL fileURLWithPath:[[NSBundle mainBundle]
                                                pathForResource:[NSString stringWithFormat:@"%@_vn",[arraySound objectAtIndex:indexPath.row]]
                                                ofType:@"mp3"]];
     audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioFile error:nil];
     [audioPlayer play];
     
+    [self loadData];
+    [self.collectionView reloadData];
+    
+    NSLog(@"Level: %d",level);
 }
 
 
